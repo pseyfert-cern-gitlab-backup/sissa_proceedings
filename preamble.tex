@@ -1,0 +1,44 @@
+\usepackage{hepnicenames}
+\usepackage{microtype}
+\newcommand{\texorpdfstring}[2]{#1}
+\usepackage[hyperref=true,backend=biber,sorting=none,firstinits=true]{biblatex}
+\makeatletter
+\DeclareFieldFormat{doi}{%
+  \mkbibacro{DOI}\addcolon\space%
+    {\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}}
+\DeclareFieldFormat{eprint:arxiv}{%
+  arXiv\addcolon\space%
+    {\href{http://arxiv.org/\abx@arxivpath/#1}{%
+       \nolinkurl{#1}%
+       \iffieldundef{eprintclass}
+         {}
+         {\addspace\texttt{\mkbibbrackets{\thefield{eprintclass}}}}}}
+    }
+\makeatother
+
+\DeclareSourcemap{
+ \maps[datatype=bibtex,overwrite=true]{
+  \map{
+    \step[fieldsource=Collaboration, final=true]
+    \step[fieldset=usera, origfieldval, final=true]
+  }
+ }
+}
+
+\renewbibmacro*{author}{%
+  \iffieldundef{usera}{%
+    \printnames{author}%
+  }{%
+    \printfield{usera}, \printnames{author}%
+  }%
+}%
+
+%\DeclareBibliographyCategory{Internal}
+%\bibliography{main} %% LATE FIX
+\renewbibmacro{in:}{}
+\addbibresource{main.bib}
+%\nobibintoc
+
+\ifthenelse{\boolean{withlinenumbers}}{
+  \usepackage{lineno}
+}{}
