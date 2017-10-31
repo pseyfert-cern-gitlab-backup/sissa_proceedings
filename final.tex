@@ -1,0 +1,19 @@
+% modified from SISSA's PoS template
+\documentclass{PoS}
+
+\usepackage{ifthen}
+\newboolean{withlinenumbers}
+\setboolean{withlinenumbers}{false}
+\input{preamble}
+\input{header}
+
+\begin{document}
+\ifthenelse{\boolean{withlinenumbers}}{
+  \linenumbers
+}{}
+
+\input{content}
+
+\printbibliography
+
+\end{document}
