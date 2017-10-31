@@ -46,3 +46,9 @@ getting reference updates right). Also, `make clean` should remove all left
 over files from the build process and is called in every normal build
 automatically to get rid of left-over files from a previous run and make runs
 independent of each other.
+
+## logo
+
+The logo I picked is taken from
+https://pixabay.com/de/buch-lesung-bildung-wissen-150199/
+where it is published under CC0.
