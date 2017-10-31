@@ -111,10 +111,13 @@ author's name).
 }%
 ```
 
-With these settings I have names consistently spelled with abbreviated first
-names, collaboration names before the author names, nice display for articles
-with and without journal, printed DOI and arxiv fields with clickable links,
-and all that for citations as they come from inspire.
+With these settings I have:
+ * names consistently spelled with abbreviated first names
+ * collaboration names before the author names
+ * nice display for articles with and without journal
+ * printed DOI and arxiv fields with clickable links
+ * all that for citations as they come from inspire (non-standard 'collaboration' field)
+ * clickable URL
 
 # summary
 
@@ -125,6 +128,9 @@ and all that for citations as they come from inspire.
 \usepackage[hyperref=true,backend=biber,sorting=none,firstinits=true]{biblatex}
 \addbibresource{main.bib}
 \makeatletter
+\DeclareFieldFormat{url}{%
+  \mkbibacro{URL}\addcolon\space%
+    {\href{#1}{\nolinkurl{#1}}}}
 \DeclareFieldFormat{doi}{%
   \mkbibacro{DOI}\addcolon\space%
     {\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}}

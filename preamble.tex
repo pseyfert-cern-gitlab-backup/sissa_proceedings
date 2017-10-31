@@ -3,6 +3,9 @@
 \newcommand{\texorpdfstring}[2]{#1}
 \usepackage[hyperref=true,backend=biber,sorting=none,firstinits=true]{biblatex}
 \makeatletter
+\DeclareFieldFormat{url}{%
+  \mkbibacro{URL}\addcolon\space%
+    {\href{#1}{\nolinkurl{#1}}}}
 \DeclareFieldFormat{doi}{%
   \mkbibacro{DOI}\addcolon\space%
     {\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}}
