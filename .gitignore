@@ -1,0 +1,14 @@
+*.tex.bak
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.bbl
+
